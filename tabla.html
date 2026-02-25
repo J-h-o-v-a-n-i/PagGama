@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Evaluación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .score-container {
+      margin-top: 10px;
+    }
+    #scoreValue {
+      font-weight: bold;
+      margin-top: 5px;
+      display: block;
+      text-align: center;
+    }
+    .submit-btn {
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      width: 100%;
+    }
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Evaluación de Crédito</h1>
+  <form>
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad" value="18">
+
+    <label for="pais">País de nacimiento:</label>
+    <input list="paises" id="pais" name="pais" placeholder="Escribe tu país...">
+    <datalist id="paises">
+       <option value="Afganistán">
+      <option value="Albania">
+      <option value="Alemania">
+      <option value="Andorra">
+      <option value="Angola">
+      <option value="Antigua y Barbuda">
+      <option value="Arabia Saudita">
+      <option value="Argentina">
+      <option value="Armenia">
+      <option value="Australia">
+      <option value="Austria">
+      <option value="Azerbaiyán">
+      <option value="Bahamas">
+      <option value="Bangladés">
+      <option value="Barbados">
+      <option value="Bélgica">
+      <option value="Belice">
+      <option value="Benín">
+      <option value="Bielorrusia">
+      <option value="Bolivia">
+      <option value="Bosnia y Herzegovina">
+      <option value="Botsuana">
+      <option value="Brasil">
+      <option value="Brunéi">
+      <option value="Bulgaria">
+      <option value="Burkina Faso">
+      <option value="Burundi">
+      <option value="Cabo Verde">
+      <option value="Camboya">
+      <option value="Camerún">
+      <option value="Canadá">
+      <option value="Chile">
+      <option value="China">
+      <option value="Colombia">
+      <option value="Corea del Norte">
+      <option value="Corea del Sur">
+      <option value="Costa Rica">
+      <option value="Croacia">
+      <option value="Cuba">
+      <option value="Dinamarca">
+      <option value="Ecuador">
+      <option value="Egipto">
+      <option value="El Salvador">
+      <option value="Emiratos Árabes Unidos">
+      <option value="España">
+      <option value="Estados Unidos">
+      <option value="Estonia">
+      <option value="Etiopía">
+      <option value="Filipinas">
+      <option value="Finlandia">
+      <option value="Francia">
+      <option value="Grecia">
+      <option value="Guatemala">
+      <option value="Honduras">
+      <option value="Hungría">
+      <option value="India">
+      <option value="Indonesia">
+      <option value="Irak">
+      <option value="Irán">
+      <option value="Irlanda">
+      <option value="Islandia">
+      <option value="Israel">
+      <option value="Italia">
+      <option value="Jamaica">
+      <option value="Japón">
+      <option value="Jordania">
+      <option value="Kazajistán">
+      <option value="Kenia">
+      <option value="Kirguistán">
+      <option value="Kuwait">
+      <option value="Letonia">
+      <option value="Líbano">
+      <option value="Liberia">
+      <option value="Libia">
+      <option value="Liechtenstein">
+      <option value="Lituania">
+      <option value="Luxemburgo">
+      <option value="Madagascar">
+      <option value="Malasia">
+      <option value="Maldivas">
+      <option value="Malí">
+      <option value="Malta">
+      <option value="Marruecos">
+      <option value="México">
+      <option value="Mónaco">
+      <option value="Mongolia">
+      <option value="Montenegro">
+      <option value="Mozambique">
+      <option value="Namibia">
+      <option value="Nepal">
+      <option value="Nicaragua">
+      <option value="Nigeria">
+      <option value="Noruega">
+      <option value="Nueva Zelanda">
+      <option value="Países Bajos">
+      <option value="Pakistán">
+      <option value="Panamá">
+      <option value="Paraguay">
+      <option value="Perú">
+      <option value="Polonia">
+      <option value="Portugal">
+      <option value="Reino Unido">
+      <option value="República Checa">
+      <option value="República Dominicana">
+      <option value="Rumanía">
+      <option value="Rusia">
+      <option value="Senegal">
+      <option value="Serbia">
+      <option value="Singapur">
+      <option value="Sudáfrica">
+      <option value="Suecia">
+      <option value="Suiza">
+      <option value="Tailandia">
+      <option value="Tanzania">
+      <option value="Turquía">
+      <option value="Ucrania">
+      <option value="Uganda">
+      <option value="Uruguay">
+      <option value="Uzbekistán">
+      <option value="Venezuela">
+      <option value="Vietnam">
+      <option value="Yemen">
+      <option value="Zambia">
+      <option value="Zimbabue">
+    </datalist>
+
+    <label for="ingresos">Ingresos mensuales:</label>
+    <input type="number" id="ingresos" name="ingresos" value="10000">
+
+    <label for="buro">Buró de crédito:</label>
+    <select id="buro" name="buro">
+      <option value="bueno" selected>Bueno</option>
+      <option value="regular">Regular</option>
+      <option value="malo">Malo</option>
+    </select>
+
+    <label for="score">Score:</label>
+    <div class="score-container">
+      <input type="range" id="score" name="score" min="300" max="850" value="625">
+      <span id="scoreValue">625</span>
+    </div>
+
+    <label for="monto">Monto del Préstamo:</label>
+    <input type="number" id="monto" name="monto" value="10000">
+
+    <label for="meses">Número de Meses:</label>
+    <input type="number" id="meses" name="meses" value="12">
+
+    <label for="tasa">Tasa de Interés Referencia:</label>
+    <input type="text" id="tasa" name="tasa" placeholder="Ej. 10%">
+
+    <button type="submit" class="submit-btn">Calcular</button>
+  </form>
+
+  <script>
+    const scoreSlider = document.getElementById("score");
+    const scoreValue = document.getElementById("scoreValue");
+    const buroSelect = document.getElementById("buro");
+
+    // Cambiar color según el valor del score
+    scoreSlider.addEventListener("input", () => {
+      const value = scoreSlider.value;
+      scoreValue.textContent = value;
+
+      if (value < 500) {
+        scoreValue.style.color = "red";
+      } else if (value < 650) {
+        scoreValue.style.color = "orange";
+      } else if (value < 750) {
+        scoreValue.style.color = "blue";
+      } else {
+        scoreValue.style.color = "green";
+      }
+    });
+    function updateScoreAndBuro() {
+      const value = parseInt(scoreSlider.value);
+      scoreValue.textContent = value;
+
+      // Cambiar color y buró según score
+      if (value < 500) {
+        scoreValue.style.color = "red";
+        buroSelect.value = "malo";
+      } else if (value < 650) {
+        scoreValue.style.color = "orange";
+        buroSelect.value = "regular";
+      } else {
+        scoreValue.style.color = "green";
+        buroSelect.value = "bueno";
+      }
+    }
+
+    // Evento al mover el slider
+    scoreSlider.addEventListener("input", updateScoreAndBuro);
+
+    // Inicializar
+    updateScoreAndBuro();
+  </script>
+</body>
+</html>
