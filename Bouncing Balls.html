@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bouncing Balls</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Ajustar tamaño del canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Función para generar colores aleatorios
+    function randomColor() {
+      return `rgb(${Math.floor(Math.random()*255)}, 
+                  ${Math.floor(Math.random()*255)}, 
+                  ${Math.floor(Math.random()*255)})`;
+    }
+
+    // Clase Ball
+    class Ball {
+      constructor(x, y, velX, velY, color, size) {
+        this.x = x;
+        this.y = y;
+        this.velX = velX;
+        this.velY = velY;
+        this.color = color;
+        this.size = size;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      update() {
+        if ((this.x + this.size) >= canvas.width || (this.x - this.size) <= 0) {
+          this.velX = -this.velX;
+        }
+        if ((this.y + this.size) >= canvas.height || (this.y - this.size) <= 0) {
+          this.velY = -this.velY;
+        }
+        this.x += this.velX;
+        this.y += this.velY;
+      }
+    }
+
+    // Crear varias pelotas
+    const balls = [];
+    for (let i = 0; i < 25; i++) {
+      const size = Math.random() * 20 + 10;
+      const x = Math.random() * (canvas.width - size * 2) + size;
+      const y = Math.random() * (canvas.height - size * 2) + size;
+      const velX = (Math.random() - 0.5) * 8;
+      const velY = (Math.random() - 0.5) * 8;
+      const color = randomColor();
+      balls.push(new Ball(x, y, velX, velY, color, size));
+    }
+
+    // Animación
+    function loop() {
+      ctx.fillStyle = "rgba(0,0,0,0.25)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (const ball of balls) {
+        ball.draw();
+        ball.update();
+      }
+
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
+</body>
+</html>
