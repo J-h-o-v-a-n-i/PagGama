@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="fondo">
+
+<div class="login-box">
+
+<h2>Iniciar sesión</h2>
+
+<input type="text" id="correo" placeholder="Correo">
+<input type="password" id="password" placeholder="Contraseña">
+
+<button onclick="login()">Entrar</button>
+
+<p>¿No tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
+
+</div>
+
+<script>
+function login(){
+
+fetch("login.php",{
+method:"POST",
+body:new URLSearchParams({
+correo:correo.value,
+password:password.value
+})
+})
+.then(r=>r.text())
+.then(res=>{
+
+if(res=="ok"){
+window.location="index.php";
+}else{
+alert("Datos incorrectos");
+}
+
+});
+}
+</script>
+
+</body>
+</html>

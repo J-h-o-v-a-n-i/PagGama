@@ -1,0 +1,15 @@
+<perros>
+
+<perro>
+<nombre>Max</nombre>
+<edad>2 años</edad>
+<descripcion>Perro amigable en adopción</descripcion>
+</perro>
+
+<perro>
+<nombre>Luna</nombre>
+<edad>1 año</edad>
+<descripcion>Perra encontrada cerca del parque</descripcion>
+</perro>
+
+</perros>

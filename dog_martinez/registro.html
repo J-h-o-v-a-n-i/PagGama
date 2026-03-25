@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registro</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="fondo">
+
+<div class="login-box">
+
+<h2>Crear cuenta</h2>
+
+<input type="text" id="nombre" placeholder="Nombre">
+<input type="text" id="correo" placeholder="Correo">
+<input type="password" id="password" placeholder="Contraseña">
+
+<button onclick="registrar()">Registrarse</button>
+
+</div>
+
+<script>
+function registrar(){
+
+fetch("registro.php",{
+method:"POST",
+body:new URLSearchParams({
+nombre:nombre.value,
+correo:correo.value,
+password:password.value
+})
+})
+.then(()=>{
+
+alert("Cuenta creada");
+window.location="login.html";
+
+});
+}
+</script>
+
+</body>
+</html>
